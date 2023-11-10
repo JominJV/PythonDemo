@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'register.css' %}">
+    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <div style="align-self: center;">
+        <div class="wrapper">
+            <h1>Register For An Account</h1>
+            <p>To sign-up for a free basic account please provide us with some basic information using
+            the contact form below. Please use valid credentials.</p>
+            <form class="form" method="post" action="registeration">
+              {% csrf_token %}
+
+             <input type="text" class="username" name="username" placeholder="Username">
+             <input type="text" class="first_name" name="first_name" placeholder="First_name">
+             <input type="text" class="last_name" name="last_name" placeholder="Last_name">
+             <input type="email" class="email" name="email" placeholder="Email">
+             <input type="password" class="password" name="password" placeholder="Password">
+             <input type="password" class="cpassword" name="password1" placeholder="Confirm password">
+             <input type="submit" class="submit" value="Register">
+            </form>
+        </div>
+    </div>
+{% for msg in messages %}
+{{msg}}
+{% endfor %}
+</body>
+</html>
